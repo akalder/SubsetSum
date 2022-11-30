@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-#include <iostream>
 using namespace std;
 
 void generateRandom(vector<int> &v, int n)
