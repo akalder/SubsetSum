@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+using namespace std::chrono;
 using namespace std;
 
 void generateRandom(vector<int> &v, int n)
@@ -139,85 +140,83 @@ int main() {
     
 
 
-    clock_t texact1;
-    texact1 = clock();
+    
+
+    auto start1exact = high_resolution_clock::now();
     int exact1 = exact_subset_sum(v1, 308);
-    texact1 = clock() - texact1;
-    clock_t tapprox1;
-    tapprox1 = clock();
+    auto stop1exact = high_resolution_clock::now();
+    auto duration1exact = duration_cast<microseconds>(stop1exact - start1exact);
+    auto start1approx = high_resolution_clock::now();
     int approx1 = approx_subset_sum(v1, 308, 0.40);
-    tapprox1 = clock() - tapprox1;
-    cout << "Exact time needed " << ((float)texact1)/CLOCKS_PER_SEC << endl;
-    cout << "Approx time needed " << ((float)tapprox1)/CLOCKS_PER_SEC << endl;
-    cout << endl << endl << endl;
+    auto stop1approx = high_resolution_clock::now();
+    auto duration1approx = duration_cast<microseconds>(stop1approx - start1approx);
+    cout << "Exact time needed: " << (duration1exact.count() / 1000000.0) << " seconds" << endl;
+    cout << "Approx time needed: " << (duration1approx.count() / 1000000.0) << " seconds" << endl;
 
-    clock_t texact2;
-    texact2 = clock();
-    int exact2 = exact_subset_sum(v2, rand() % 1000);
-    texact2 = clock() - texact2;
-    clock_t tapprox2;
-    tapprox2 = clock();
-    int approx2 = approx_subset_sum(v2, rand() % 1000, 0.40);
-    tapprox2 = clock() - tapprox2;
-    cout << "Exact time needed " << ((float)texact2)/CLOCKS_PER_SEC << endl;
-    cout << "Approx time needed " << ((float)tapprox2)/CLOCKS_PER_SEC << endl;
+    auto start2exact = high_resolution_clock::now();
+    int exact2 = exact_subset_sum(v4, rand() % 1000);
+    auto stop2exact = high_resolution_clock::now();
+    auto duration2exact = duration_cast<microseconds>(stop2exact - start2exact);
+    auto start2approx = high_resolution_clock::now();
+    int approx2 = approx_subset_sum(v2, rand() % 1000, 0.90);
+    auto stop2approx = high_resolution_clock::now();
+    auto duration2approx = duration_cast<microseconds>(stop2approx - start2approx);
+    cout << "Exact time needed: " << (duration2exact.count() / 1000000.0) << " seconds" << endl;
+    cout << "Approx time needed: " << (duration2approx.count() / 1000000.0) << " seconds" << endl;
+    
 
-
-    clock_t texact3;
-    texact3 = clock();
+    auto start3exact = high_resolution_clock::now();
     int exact3 = exact_subset_sum(v3, rand() % 1000);
-    texact3 = clock() - texact3;
-    clock_t tapprox3;
-    tapprox3 = clock();
-    int approx3 = approx_subset_sum(v3, rand() % 1000, 0.40);
-    tapprox3 = clock() - tapprox3;
-    cout << "Exact time needed " << ((float)texact3)/CLOCKS_PER_SEC << endl;
-    cout << "Approx time needed " << ((float)tapprox3)/CLOCKS_PER_SEC << endl;
-    
-    
-    
+    auto stop3exact = high_resolution_clock::now();
+    auto duration3exact = duration_cast<microseconds>(stop3exact - start3exact);
+    auto start3approx = high_resolution_clock::now();
+    int approx3 = approx_subset_sum(v3, rand() % 1000, 0.90);
+    auto stop3approx = high_resolution_clock::now();
+    auto duration3approx = duration_cast<microseconds>(stop3approx - start3approx);
+    cout << "Exact time needed: " << (duration3exact.count() / 1000000.0) << " seconds" << endl;
+    cout << "Approx time needed: " << (duration3approx.count() / 1000000.0) << " seconds" << endl;
 
 
-    clock_t texact4;
-    texact4 = clock();
+    
+    auto start4exact = high_resolution_clock::now();
     int exact4 = exact_subset_sum(v4, rand() % 1000);
-    texact3 = clock() - texact4;
-    clock_t tapprox4;
-    tapprox4 = clock();
-    int approx4 = approx_subset_sum(v4, rand() % 1000, 0.40);
-    tapprox3 = clock() - tapprox4;
-    cout << "Exact time needed " << ((float)texact4)/CLOCKS_PER_SEC << endl;
-    cout << "Approx time needed " << ((float)tapprox4)/CLOCKS_PER_SEC << endl;
-    
+    auto stop4exact = high_resolution_clock::now();
+    auto duration4exact = duration_cast<microseconds>(stop4exact - start4exact);
+    auto start4approx = high_resolution_clock::now();
+    int approx4 = approx_subset_sum(v4, rand() % 1000, 0.90);
+    auto stop4approx = high_resolution_clock::now();
+    auto duration4approx = duration_cast<microseconds>(stop4approx - start4approx);
+    cout << "Exact time needed: " << (duration4exact.count() / 1000000.0) << " seconds" << endl;
+    cout << "Approx time needed: " << (duration4approx.count() / 1000000.0) << " seconds" << endl;
 
 
 
-    clock_t texact5;
-    texact5 = clock();
+    auto start5exact = high_resolution_clock::now();
     int exact5 = exact_subset_sum(v5, rand() % 1000);
-    texact5 = clock() - texact5;
-    clock_t tapprox5;
-    tapprox5 = clock();
-    int approx5 = approx_subset_sum(v5, rand() % 1000, 0.40);
-    tapprox3 = clock() - tapprox5;
-    cout << "Exact time needed " << ((float)texact5)/CLOCKS_PER_SEC << endl;
-    cout << "Approx time needed " << ((float)tapprox5)/CLOCKS_PER_SEC << endl;
+    auto stop5exact = high_resolution_clock::now();
+    auto duration5exact = duration_cast<microseconds>(stop5exact - start5exact);
+    auto start5approx = high_resolution_clock::now();
+    int approx5 = approx_subset_sum(v5, rand() % 1000, 0.90);
+    auto stop5approx = high_resolution_clock::now();
+    auto duration5approx = duration_cast<microseconds>(stop5approx - start5approx);
+    cout << "Exact time needed: " << (duration5exact.count() / 1000000.0) << " seconds" << endl;
+    cout << "Approx time needed: " << (duration5approx.count() / 1000000.0) << " seconds" << endl;
 
     
     
     
     
     vector<float> y_exact, y_approx;
-    y_exact = {((float)texact1)/CLOCKS_PER_SEC, 
-                ((float)texact2)/CLOCKS_PER_SEC,
-                ((float)texact3)/CLOCKS_PER_SEC,
-                ((float)texact4)/CLOCKS_PER_SEC,
-                ((float)texact5)/CLOCKS_PER_SEC};
-    y_approx = {((float)tapprox1)/CLOCKS_PER_SEC,
-                ((float)tapprox2)/CLOCKS_PER_SEC,
-                ((float)tapprox3)/CLOCKS_PER_SEC,
-                ((float)tapprox4)/CLOCKS_PER_SEC,
-                ((float)tapprox5)/CLOCKS_PER_SEC};
+    y_exact = {(float)(duration1exact.count() / 1000000.0),
+               (float)(duration2exact.count() / 1000000.0),
+               (float)(duration3exact.count() / 1000000.0),
+               (float)(duration4exact.count() / 1000000.0),
+               (float)(duration5exact.count() / 1000000.0)};
+    y_approx = {(float)(duration1approx.count() / 1000000.0),
+               (float)(duration2approx.count() / 1000000.0),
+               (float)(duration3approx.count() / 1000000.0),
+               (float)(duration4approx.count() / 1000000.0),
+               (float)(duration5approx.count() / 1000000.0)};
     vector<int> x;
     x = {4, 10, 20, 50, 100};
     
