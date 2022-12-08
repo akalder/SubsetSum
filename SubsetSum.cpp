@@ -5,7 +5,7 @@ void generateRandom(vector<int> &v, int n)
 {
     for(int i = 0; i < n; i++)
     {
-        int temp = rand();
+        int temp = rand() % 1000;
         if(i != 0)
         {
             auto it = find(v.begin(), v.end(), temp);
@@ -20,7 +20,7 @@ void generateRandom(vector<int> &v, int n)
     }
 }
 
-void merge_lists(vector<int> &l, vector<int> v, int x)
+void merge_lists(vector<int> &l,  int x)
 {
     int n = l.size();
     for(int i = 0; i < n; i++) 
@@ -65,7 +65,7 @@ int approx_subset_sum(vector<int> v, int target, float e)
     for(int i = 0; i < n; i++)
     {
         int x = v[i];
-        merge_lists(l, v, x);
+        merge_lists(l, x);
         float delta = e / (float)(2 * n);
         trim(l, delta);
         
@@ -102,7 +102,7 @@ int exact_subset_sum(vector<int> v, int target)
     for(int i = 0; i < n; i++)
     {
         int x = v[i];
-        merge_lists(l, v, x);
+        merge_lists(l, x);
         for(int i = l.size() - 1; i >= 0; i--)
         {
             if(l[i] > target)
@@ -130,18 +130,22 @@ int main() {
     generateRandom(v3, 20);
     generateRandom(v4, 50);
     generateRandom(v5, 100);
-    int target;
-    cout << "Enter target value" << endl;
-    cin >> target;
+    
+    // int max1 = *max_element(v1.begin(), v1.end());
+    // int max2 = *max_element(v2.begin(), v2.end());
+    // int max3 = *max_element(v3.begin(), v3.end());
+    // int max4 = *max_element(v4.begin(), v4.end());
+    // int max5 = *max_element(v5.begin(), v5.end());
+    
 
 
     clock_t texact1;
     texact1 = clock();
-    int exact1 = exact_subset_sum(v1, target);
+    int exact1 = exact_subset_sum(v1, 308);
     texact1 = clock() - texact1;
     clock_t tapprox1;
     tapprox1 = clock();
-    int approx1 = approx_subset_sum(v1, target, 0.40);
+    int approx1 = approx_subset_sum(v1, 308, 0.40);
     tapprox1 = clock() - tapprox1;
     cout << "Exact time needed " << ((float)texact1)/CLOCKS_PER_SEC << endl;
     cout << "Approx time needed " << ((float)tapprox1)/CLOCKS_PER_SEC << endl;
@@ -149,11 +153,11 @@ int main() {
 
     clock_t texact2;
     texact2 = clock();
-    int exact2 = exact_subset_sum(v2, target);
+    int exact2 = exact_subset_sum(v2, rand() % 1000);
     texact2 = clock() - texact2;
     clock_t tapprox2;
     tapprox2 = clock();
-    int approx2 = approx_subset_sum(v2, target, 0.40);
+    int approx2 = approx_subset_sum(v2, rand() % 1000, 0.40);
     tapprox2 = clock() - tapprox2;
     cout << "Exact time needed " << ((float)texact2)/CLOCKS_PER_SEC << endl;
     cout << "Approx time needed " << ((float)tapprox2)/CLOCKS_PER_SEC << endl;
@@ -161,11 +165,11 @@ int main() {
 
     clock_t texact3;
     texact3 = clock();
-    int exact3 = exact_subset_sum(v3, target);
+    int exact3 = exact_subset_sum(v3, rand() % 1000);
     texact3 = clock() - texact3;
     clock_t tapprox3;
     tapprox3 = clock();
-    int approx3 = approx_subset_sum(v3, target, 0.40);
+    int approx3 = approx_subset_sum(v3, rand() % 1000, 0.40);
     tapprox3 = clock() - tapprox3;
     cout << "Exact time needed " << ((float)texact3)/CLOCKS_PER_SEC << endl;
     cout << "Approx time needed " << ((float)tapprox3)/CLOCKS_PER_SEC << endl;
@@ -176,11 +180,11 @@ int main() {
 
     clock_t texact4;
     texact4 = clock();
-    int exact4 = exact_subset_sum(v4, target);
+    int exact4 = exact_subset_sum(v4, rand() % 1000);
     texact3 = clock() - texact4;
     clock_t tapprox4;
     tapprox4 = clock();
-    int approx4 = approx_subset_sum(v4, target, 0.40);
+    int approx4 = approx_subset_sum(v4, rand() % 1000, 0.40);
     tapprox3 = clock() - tapprox4;
     cout << "Exact time needed " << ((float)texact4)/CLOCKS_PER_SEC << endl;
     cout << "Approx time needed " << ((float)tapprox4)/CLOCKS_PER_SEC << endl;
@@ -190,11 +194,11 @@ int main() {
 
     clock_t texact5;
     texact5 = clock();
-    int exact5 = exact_subset_sum(v5, target);
+    int exact5 = exact_subset_sum(v5, rand() % 1000);
     texact5 = clock() - texact5;
     clock_t tapprox5;
     tapprox5 = clock();
-    int approx5 = approx_subset_sum(v5, target, 0.40);
+    int approx5 = approx_subset_sum(v5, rand() % 1000, 0.40);
     tapprox3 = clock() - tapprox5;
     cout << "Exact time needed " << ((float)texact5)/CLOCKS_PER_SEC << endl;
     cout << "Approx time needed " << ((float)tapprox5)/CLOCKS_PER_SEC << endl;
