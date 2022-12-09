@@ -132,16 +132,7 @@ int main() {
     generateRandom(v4, 50);
     generateRandom(v5, 100);
     
-    // int max1 = *max_element(v1.begin(), v1.end());
-    // int max2 = *max_element(v2.begin(), v2.end());
-    // int max3 = *max_element(v3.begin(), v3.end());
-    // int max4 = *max_element(v4.begin(), v4.end());
-    // int max5 = *max_element(v5.begin(), v5.end());
     
-
-
-    
-
     auto start1exact = high_resolution_clock::now();
     int exact1 = exact_subset_sum(v1, 308);
     auto stop1exact = high_resolution_clock::now();
