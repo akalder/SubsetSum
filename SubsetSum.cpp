@@ -57,7 +57,7 @@ void trim(vector<int> &l, float delta)
     l = l_;
 }
 
-int approx_subset_sum(vector<int> v, int target, float e)
+int approx_subset_sum(vector<int> v, int target, float e, ofstream &f_output)
 {
     int n = v.size();
     vector<int> l;
@@ -76,8 +76,11 @@ int approx_subset_sum(vector<int> v, int target, float e)
                 l.pop_back();
         }
         for(int i = 0; i < l.size(); i++)
+        {
             cout << l[i] << " ";
-        
+            f_output << " " << l[i] << " ";
+        }
+        f_output << endl;
         cout << endl;
         
     }
@@ -89,12 +92,7 @@ int approx_subset_sum(vector<int> v, int target, float e)
 
 
 
-
-
-
-
-
-int exact_subset_sum(vector<int> v, int target)
+int exact_subset_sum(vector<int> v, int target, ofstream &f_output)
 {
     int n = v.size();
     vector<int> l;
@@ -110,8 +108,11 @@ int exact_subset_sum(vector<int> v, int target)
                 l.pop_back();
         }
         for(int i = 0; i < l.size(); i++)
+        {
             cout << l[i] << " ";
-        
+            f_output << " " << l[i] << " ";
+        }
+        f_output << endl;
         cout << endl;
         
     }
@@ -132,67 +133,87 @@ int main() {
     generateRandom(v4, 50);
     generateRandom(v5, 100);
     
-    
+    ofstream f_output;
+    f_output.open ("output.txt");
+
+    f_output << " For Exact Subset Sum 1(for 4 elements):" << endl;
     auto start1exact = high_resolution_clock::now();
-    int exact1 = exact_subset_sum(v1, 308);
+    int exact1 = exact_subset_sum(v1, 308, f_output);
     auto stop1exact = high_resolution_clock::now();
     auto duration1exact = duration_cast<microseconds>(stop1exact - start1exact);
+    f_output << endl << endl << endl;
+    f_output << " For Approx Subset Sum 1(for 4 elements):" << endl;
     auto start1approx = high_resolution_clock::now();
-    int approx1 = approx_subset_sum(v1, 308, 0.40);
+    int approx1 = approx_subset_sum(v1, 308, 0.40, f_output);
     auto stop1approx = high_resolution_clock::now();
     auto duration1approx = duration_cast<microseconds>(stop1approx - start1approx);
     cout << "Exact time needed: " << (duration1exact.count() / 1000000.0) << " seconds" << endl;
     cout << "Approx time needed: " << (duration1approx.count() / 1000000.0) << " seconds" << endl;
-
+    f_output << endl << endl << endl << endl << endl << endl;
+    
+    
+    f_output << " For Exact Subset Sum 2(for 10 elements):" << endl;
     auto start2exact = high_resolution_clock::now();
-    int exact2 = exact_subset_sum(v4, rand() % 1000);
+    int exact2 = exact_subset_sum(v4, rand() % 1000, f_output);
     auto stop2exact = high_resolution_clock::now();
     auto duration2exact = duration_cast<microseconds>(stop2exact - start2exact);
+    f_output << endl << endl << endl;
+    f_output << " For Approx Subset Sum 2(for 10 elements):" << endl;
     auto start2approx = high_resolution_clock::now();
-    int approx2 = approx_subset_sum(v2, rand() % 1000, 0.90);
+    int approx2 = approx_subset_sum(v2, rand() % 1000, 0.90, f_output);
     auto stop2approx = high_resolution_clock::now();
     auto duration2approx = duration_cast<microseconds>(stop2approx - start2approx);
     cout << "Exact time needed: " << (duration2exact.count() / 1000000.0) << " seconds" << endl;
     cout << "Approx time needed: " << (duration2approx.count() / 1000000.0) << " seconds" << endl;
-    
+    f_output << endl << endl << endl << endl << endl << endl;
 
+
+    f_output << " For Exact Subset Sum 3(for 20 elements):" << endl;
     auto start3exact = high_resolution_clock::now();
-    int exact3 = exact_subset_sum(v3, rand() % 1000);
+    int exact3 = exact_subset_sum(v3, rand() % 1000, f_output);
     auto stop3exact = high_resolution_clock::now();
     auto duration3exact = duration_cast<microseconds>(stop3exact - start3exact);
+    f_output << endl << endl << endl;
+    f_output << " For Approx Subset Sum 3(for 20 elements):" << endl;
     auto start3approx = high_resolution_clock::now();
-    int approx3 = approx_subset_sum(v3, rand() % 1000, 0.90);
+    int approx3 = approx_subset_sum(v3, rand() % 1000, 0.90, f_output);
     auto stop3approx = high_resolution_clock::now();
     auto duration3approx = duration_cast<microseconds>(stop3approx - start3approx);
     cout << "Exact time needed: " << (duration3exact.count() / 1000000.0) << " seconds" << endl;
     cout << "Approx time needed: " << (duration3approx.count() / 1000000.0) << " seconds" << endl;
+    f_output << endl << endl << endl << endl << endl << endl;
 
 
-    
+    f_output << " For Exact Subset Sum 4(for 50 elements):" << endl;
     auto start4exact = high_resolution_clock::now();
-    int exact4 = exact_subset_sum(v4, rand() % 1000);
+    int exact4 = exact_subset_sum(v4, rand() % 1000, f_output);
     auto stop4exact = high_resolution_clock::now();
     auto duration4exact = duration_cast<microseconds>(stop4exact - start4exact);
+    f_output << endl << endl << endl;
+    f_output << " For Approx Subset Sum 4(for 50 elements):" << endl;
     auto start4approx = high_resolution_clock::now();
-    int approx4 = approx_subset_sum(v4, rand() % 1000, 0.90);
+    int approx4 = approx_subset_sum(v4, rand() % 1000, 0.90, f_output);
     auto stop4approx = high_resolution_clock::now();
     auto duration4approx = duration_cast<microseconds>(stop4approx - start4approx);
     cout << "Exact time needed: " << (duration4exact.count() / 1000000.0) << " seconds" << endl;
     cout << "Approx time needed: " << (duration4approx.count() / 1000000.0) << " seconds" << endl;
+    f_output << endl << endl << endl << endl << endl << endl;
 
 
-
+    f_output << " For Exact Subset Sum 5(for 100 elements):" << endl;
     auto start5exact = high_resolution_clock::now();
-    int exact5 = exact_subset_sum(v5, rand() % 1000);
+    int exact5 = exact_subset_sum(v5, rand() % 1000, f_output);
     auto stop5exact = high_resolution_clock::now();
     auto duration5exact = duration_cast<microseconds>(stop5exact - start5exact);
+    f_output << endl << endl << endl;
+    f_output << " For Approx Subset Sum 5(for 100 elements):" << endl;
     auto start5approx = high_resolution_clock::now();
-    int approx5 = approx_subset_sum(v5, rand() % 1000, 0.90);
+    int approx5 = approx_subset_sum(v5, rand() % 1000, 0.90, f_output);
     auto stop5approx = high_resolution_clock::now();
     auto duration5approx = duration_cast<microseconds>(stop5approx - start5approx);
     cout << "Exact time needed: " << (duration5exact.count() / 1000000.0) << " seconds" << endl;
     cout << "Approx time needed: " << (duration5approx.count() / 1000000.0) << " seconds" << endl;
-
+    f_output << endl << endl << endl << endl << endl << endl;
     
     
     
