@@ -2,6 +2,7 @@
 using namespace std::chrono;
 using namespace std;
 
+
 void generateRandom(vector<int> &v, int n)
 {
     for(int i = 0; i < n; i++)
@@ -21,6 +22,7 @@ void generateRandom(vector<int> &v, int n)
     }
 }
 
+
 void merge_lists(vector<int> &l,  int x)
 {
     int n = l.size();
@@ -33,7 +35,6 @@ void merge_lists(vector<int> &l,  int x)
     sort(l.begin(), l.end());
     
 }
-
 
 
 
@@ -56,6 +57,8 @@ void trim(vector<int> &l, float delta)
     l.clear();
     l = l_;
 }
+
+
 
 int approx_subset_sum(vector<int> v, int target, float e, ofstream &f_output)
 {
@@ -120,7 +123,6 @@ int exact_subset_sum(vector<int> v, int target, ofstream &f_output)
     cout << endl << endl;
     return l[l.size() - 1];    
 }
-
 
 
 
@@ -215,9 +217,6 @@ int main() {
     cout << "Approx time needed: " << (duration5approx.count() / 1000000.0) << " seconds" << endl;
     f_output << endl << endl << endl << endl << endl << endl;
     
-    
-    
-    
     vector<float> y_exact, y_approx;
     y_exact = {(float)(duration1exact.count() / 1000000.0),
                (float)(duration2exact.count() / 1000000.0),
@@ -230,8 +229,7 @@ int main() {
                (float)(duration4approx.count() / 1000000.0),
                (float)(duration5approx.count() / 1000000.0)};
     vector<int> x;
-    x = {4, 10, 20, 50, 100};
-    
+    x = {4, 10, 20, 50, 100};   
 
     ofstream file;
     file.open ("data.txt");
@@ -242,8 +240,6 @@ int main() {
     file << "# Dataset for approximate times (index 1)\n# X   Y\n";
     for(int i = 0; i < 5; i++)
         file << "  " << x[i] << "   " << y_approx[i] << "\n";
-    
-
 
 	return 0;
 }
