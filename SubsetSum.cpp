@@ -154,7 +154,7 @@ int main() {
     
     f_output << " For Exact Subset Sum 2(for 10 elements):" << endl;
     auto start2exact = high_resolution_clock::now();
-    int exact2 = exact_subset_sum(v4, rand() % 1000, f_output);
+    int exact2 = exact_subset_sum(v2, rand() % 1000, f_output);
     auto stop2exact = high_resolution_clock::now();
     auto duration2exact = duration_cast<microseconds>(stop2exact - start2exact);
     f_output << endl << endl << endl;
