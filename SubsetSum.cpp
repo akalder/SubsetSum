@@ -70,19 +70,19 @@ int approx_subset_sum(vector<int> v, int target, float e, ofstream &f_output)
         float delta = e / (float)(2 * n);
         trim(l, delta);
         
-        for(int i = l.size() - 1; i >= 0; i--)
+        for(int j = l.size() - 1; j >= 0; j--)
         {
-            if(l[i] > target)
+            if(l[j] > target)
                 l.pop_back();
         }
-        for(int i = 0; i < l.size(); i++)
+        for(int j = 0; j < l.size(); j++)
         {
-            cout << l[i] << " ";
-            f_output << " " << l[i] << " ";
+            cout << l[j] << " ";
+            f_output << " " << l[j] << " ";
         }
         f_output << endl;
         cout << endl;
-        
+    
     }
     cout << l[l.size() - 1] << endl;
     cout << endl << endl;
@@ -102,15 +102,15 @@ int exact_subset_sum(vector<int> v, int target, ofstream &f_output)
     {
         int x = v[i];
         merge_lists(l, x);
-        for(int i = l.size() - 1; i >= 0; i--)
+        for(int j = l.size() - 1; j >= 0; j--)
         {
-            if(l[i] > target)
+            if(l[j] > target)
                 l.pop_back();
         }
-        for(int i = 0; i < l.size(); i++)
+        for(int j = 0; j < l.size(); j++)
         {
-            cout << l[i] << " ";
-            f_output << " " << l[i] << " ";
+            cout << l[j] << " ";
+            f_output << " " << l[j] << " ";
         }
         f_output << endl;
         cout << endl;
